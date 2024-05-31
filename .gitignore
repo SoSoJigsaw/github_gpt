@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 cloned_repo/
 /repos
+/.idea
