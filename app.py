@@ -2,13 +2,15 @@ import os
 import git
 import re
 from openai import OpenAI
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 import requests
 import faiss
 import numpy as np
 import streamlit as st
 from dotenv import load_dotenv
+
+load_dotenv()
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 system_prompt = """Você é um programador experiente especialista em criar documentação técnica no github usando 
 markdown (arquivos .md). Por isso, você está me ajudando a criar meu portfólio, seguindo a seguinte estrutura de 
@@ -164,12 +166,9 @@ def chat_with_custom_gpt(query, index, metadata):
 # Interface do Streamlit
 def main():
 
-    load_dotenv()
-
     st.title("Custom GPT Chat for GitHub Repository Analysis")
 
-
-    if not openai.api_key:
+    if not os.path.exists(".env") or os.getenv("OPENAI_API_KEY") is None:
         st.warning("Por favor, configure sua chave de API do OpenAI no arquivo .env antes de prosseguir.")
         st.stop()
 
