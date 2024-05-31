@@ -1,7 +1,9 @@
 import os
 import git
 import re
-import openai
+from openai import OpenAI
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 import requests
 import faiss
 import numpy as np
@@ -80,11 +82,9 @@ def preprocess_text(text):
 
 # Função para gerar embeddings com OpenAI
 def get_embeddings(text):
-    response = openai.Embedding.create(
-        input=text,
-        model="text-embedding-ada-002"
-    )
-    return response['data'][0]['embedding']
+    response = client.embeddings.create(input=text,
+    model="text-embedding-ada-002")
+    return response.data[0].embedding
 
 
 # Função para armazenar embeddings em FAISS
@@ -148,10 +148,8 @@ def generate_response(query, context, system_prompt = system_prompt):
 
     prompt = f"{system_prompt}\n\nContexto: {context}\n\nQuery do usuário: {query}\nAI:"
 
-    response = openai.Completion.create(
-        model="gpt-4o-2024-05-13",
-        prompt=prompt
-    )
+    response = client.completions.create(model="gpt-4o-2024-05-13",
+    prompt=prompt)
     return response.choices[0].text.strip()
 
 
@@ -170,7 +168,6 @@ def main():
 
     st.title("Custom GPT Chat for GitHub Repository Analysis")
 
-    openai.api_key = os.getenv("OPENAI_API_KEY")
 
     if not openai.api_key:
         st.warning("Por favor, configure sua chave de API do OpenAI no arquivo .env antes de prosseguir.")
