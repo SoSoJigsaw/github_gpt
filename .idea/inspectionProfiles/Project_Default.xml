@@ -1,0 +1,45 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyCompatibilityInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ourVersions">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="2.7" />
+            <item index="1" class="java.lang.String" itemvalue="3.13" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="14">
+            <item index="0" class="java.lang.String" itemvalue="newsapi" />
+            <item index="1" class="java.lang.String" itemvalue="ruamel-yaml" />
+            <item index="2" class="java.lang.String" itemvalue="ruamel-yaml-clib" />
+            <item index="3" class="java.lang.String" itemvalue="langchain" />
+            <item index="4" class="java.lang.String" itemvalue="langsmith" />
+            <item index="5" class="java.lang.String" itemvalue="jupyter_client" />
+            <item index="6" class="java.lang.String" itemvalue="pypdfium2" />
+            <item index="7" class="java.lang.String" itemvalue="crewai" />
+            <item index="8" class="java.lang.String" itemvalue="jupyter_core" />
+            <item index="9" class="java.lang.String" itemvalue="ipykernel" />
+            <item index="10" class="java.lang.String" itemvalue="triton" />
+            <item index="11" class="java.lang.String" itemvalue="nvidia-cudnn-cu12" />
+            <item index="12" class="java.lang.String" itemvalue="nvidia-nccl-cu12" />
+            <item index="13" class="java.lang.String" itemvalue="whisper" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="newsapi.NewsApiClient" />
+          <option value="langchain.chains.langgraph" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
